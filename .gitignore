@@ -11,3 +11,5 @@ bin-*
 
 # Generated
 result-*
+a.out
+test.c
