@@ -1,7 +1,7 @@
 #include "swap.c"
 
 void mergesort(List **head){
-    if(head == NULL || *head == NULL || (*head)->next == NULL)
+    if(head == NULL || (*head == NULL) || (*head)->next == NULL)
         return;
     List *left = *head;
     List *right = (*head)->next;
@@ -25,28 +25,25 @@ void mergesort(List **head){
     mergesort(&right);
 
     /* Merge */
-    if(left && right && left > right) {
-        *head = left;
-        left = left->next;
-    } else if(left && right && left < right) {
-        *head = right;
-        right = right->next;
-    }
+    *head = NULL;
     while(left && right) {
-        if(left > right) {
+        if(left->value > right->value) {
             curr = right;
             right = right->next;
         } else {
             curr = left;
             left = left->next;
         }
-        last->next = curr;
+        if(*head) last->next = curr;
+        else *head = curr;
+
         last = curr;
     }
-
-    if(left) {
-        last->next = left;
-    } else if(right) {
-        last->next = right;
+    if(last){
+        if(left) {
+            last->next = left;
+        } else if(right) {
+            last->next = right;
+        }
     }
 }

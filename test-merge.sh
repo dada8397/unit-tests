@@ -34,8 +34,8 @@ do
 	echo 'p "test begin"' >> _tmp.gdb
 	echo 'p "old_list"' >> _tmp.gdb
 	echo 'printf_list (*($head))' >> _tmp.gdb
-	echo 'set logging off' >> _tmp.gdb
-	echo 'p bubble_sort($head)' >> _tmp.gdb
+#	echo 'set logging off' >> _tmp.gdb
+	echo 'p mergesort($head)' >> _tmp.gdb
 	echo 'set logging on' >> _tmp.gdb
 	echo 'p "new_list"' >> _tmp.gdb
 	echo 'printf_list (*($head))' >> _tmp.gdb
@@ -47,6 +47,6 @@ done
 echo 'q' >> _tmp.gdb
 echo 'y' >> _tmp.gdb
 
-gdb -q -x _tmp.gdb bin-bubble >>/dev/null
+gdb -q -x _tmp.gdb bin-merge >>/dev/null
 
 rm _tmp.gdb
