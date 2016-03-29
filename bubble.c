@@ -16,15 +16,8 @@ void bubble_sort(List **head)
 
     sub_head = *head;
 
-    for (; sub_head && sub_head->next;) {
-        if (sub_head->value < sub_head->next->value) {
-            sub_head = swap(sub_head,sub_head,sub_head->next);
-            *pre_sub_head = sub_head;
-        }
-
+    for (; sub_head; sub_head = sub_head->next) {
         num_list = num_list + 1;
-        pre_sub_head = &((*pre_sub_head)->next);
-        sub_head = sub_head->next;
     }
 
     sub_for_times = num_list - 1;
